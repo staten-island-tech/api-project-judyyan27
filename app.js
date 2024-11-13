@@ -5,7 +5,9 @@
 async function getData() {
   // fetch returns a promise -- promises that someimte in the future it returns something
   try {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+    const response = await fetch(
+      "https://potterapi-fedeperin.vercel.app/en/spells"
+    );
     // guard clause
     if (response.status != 200) {
       throw new Error(response);
