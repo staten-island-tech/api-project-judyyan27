@@ -18,7 +18,7 @@ async function getData() {
     }
   } catch (error) {
     console.log(error);
-    console.log("sorry could not find that pocket monster");
+    console.log("sorry could not find that spell");
   }
 }
 getData();
