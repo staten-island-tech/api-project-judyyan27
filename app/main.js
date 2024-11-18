@@ -1,5 +1,3 @@
-import "./style.css";
-
 // gets data
 // shows the data (usually happens while getting data)
 //
@@ -16,11 +14,11 @@ async function getData() {
     } else {
       const data = await response.json(); // json"ified" with data we can use
       console.log(data);
-      document.querySelector("h1").textContent = data.name;
+      document.querySelector("h2").textContent = data;
     }
   } catch (error) {
     console.log(error);
-    console.log("sorry could not find that spell");
+    console.log("sorry could not find that information");
   }
 }
 getData();
