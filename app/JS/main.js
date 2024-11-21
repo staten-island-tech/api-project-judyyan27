@@ -21,7 +21,6 @@ async function testData() {
     } else {
       const hpData = await response.json(); // json"ified" with data we can use
       console.log(hpData);
-      document.querySelector("h1").textContent = hpData[0].fullName;
       createCards(hpData);
     }
   } catch (error) {
@@ -39,17 +38,14 @@ function createCards(hpData) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
-        <img class="card-img" src="${character.image}" alt="Image of ${
-        character.fullName
-      }" />
+        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
         <h2 class="card-title">Name: ${character.fullName}</h2>
         <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
-        <h3 class="card-desc">Actor: ${character.interpretedBy || "N/A"}</h3>
+        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
       </div>`
     )
   );
 }
 
 // Upon loading website, all cards show on screen
-createCards(hpData);
