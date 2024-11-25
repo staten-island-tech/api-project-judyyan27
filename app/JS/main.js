@@ -37,9 +37,9 @@ function createCards(hpData) {
   hpData.forEach((character) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="card">
+      `<div class="card bg-neutral">
         <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
-        <h2 class="card-title">Name: ${character.fullName}</h2>
+        <h2 class="card-title bg-rgb(184, 134, 11)">Name: ${character.fullName}</h2>
         <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
         <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>

@@ -11,16 +11,36 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div class="container-box">
-      <!-- <div class="card">
+    <header>
+      <div class="header bg-slate-50">
+        <h1 class="title">Important Harry Potter Characters</h1>
+      </div>
+    </header>
+    <body class="bg-slate-300">
+      <div class="selection bg-slate-200">
+        <button class="btn bg-orange-700 text-orange-100" id="griffindor">
+          Griffindor Characters
+        </button>
+        <button class="btn bg-green-700 text-green-100" id="slytherin">
+          Slytherin Characters
+        </button>
+        <button class="btn bg-yellow-700 text-yellow-100" id="hufflepuff">
+          Hufflepuff Characters
+        </button>
+        <button class="btn bg-indigo-700 text-indigo-100" id="ravenclaw">
+          Ravenclaw Characters
+        </button>
+      </div>
+      <div class="container-box">
+        <!-- <div class="card">
         <img class="card-img" src="${character.image}" />
         <h2 class="card-title">Name: ${character.fullName}</h2>
         <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
         <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
       </div> -->
-    </div>
-    <h1></h1>
+      </div>
+    </body>
     <script type="module" src="JS/main.js"></script>
   </body>
 </html>
