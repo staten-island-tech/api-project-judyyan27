@@ -9,26 +9,10 @@ const DOMSelectors = {
   slytherin: document.querySelector(`#slytherin`),
   hufflepuff: document.querySelector(`#hufflepuff`),
   ravenclaw: document.querySelector(`#ravenclaw`),
-};
 
-//standard function that creates cards for flowers on screen and can accept different arrays
-function createCards(hpData) {
-  DOMSelectors.container.innerHTML = "";
-  hpData.forEach((character) =>
-    DOMSelectors.container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card bg-neutral">
-        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
-        <h2 class="card-title bg-rgb(184, 134, 11)">Name: ${character.fullName}</h2>
-        <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
-        <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
-        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
-      </div>`
-    )
-  );
-}
-// gets data
-// shows the data (usually happens while getting data)
+  books: document.querySelector(`#books`),
+  spells: document.querySelector(`#spells`),
+};
 
 async function normalData() {
   // fetch returns a promise -- promises that someimte in the future it returns something
@@ -65,14 +49,36 @@ async function griffindorData() {
     } else {
       const griffindor = await response.json(); // json"ified" with data we can use
       //if the character's house is griffindor-- save that info as another data
-      if (griffindor.hogwartsHouse === "Griffindor") {
-        data = griffindor;
-      }
-
-      createCards(data);
+      const data = griffindor.filter((house) =>
+        house.hogwartsHouse.includes("griffindor")
+      );
     }
   } catch (error) {
     console.log(error);
     console.log("sorry could not find that information");
   }
 }
+
+DOMSelectors.griffindor.addEventListener("click", function () {
+  DOMSelectors.container.innerHTML = "";
+  griffindorData();
+});
+
+//standard function that creates cards for flowers on screen and can accept different arrays
+function createCards(hpData) {
+  DOMSelectors.container.innerHTML = "";
+  hpData.forEach((character) =>
+    DOMSelectors.container.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card bg-neutral">
+        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
+        <h2 class="card-title bg-rgb(184, 134, 11)">Name: ${character.fullName}</h2>
+        <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
+        <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
+        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
+      </div>`
+    )
+  );
+}
+// gets data
+// shows the data (usually happens while getting data)
