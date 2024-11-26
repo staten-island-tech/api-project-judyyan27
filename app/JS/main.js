@@ -65,7 +65,7 @@ async function griffindorData() {
     } else {
       const griffindor = await response.json(); // json"ified" with data we can use
       //if the character's house is griffindor-- save that info as another data
-      if (g = griffindor.){
+      if (g = griffindor.hogwartsHouse){
 
       }
 
