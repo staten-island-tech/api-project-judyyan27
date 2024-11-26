@@ -65,16 +65,14 @@ async function griffindorData() {
     } else {
       const griffindor = await response.json(); // json"ified" with data we can use
       //if the character's house is griffindor-- save that info as another data
-      if (g = griffindor.hogwartsHouse){
-
+      if (griffindor.hogwartsHouse === "Griffindor") {
+        data = griffindor;
       }
 
-      console.log(griffindor);
-      createCards(griffindor);
+      createCards(data);
     }
   } catch (error) {
     console.log(error);
     console.log("sorry could not find that information");
   }
 }
-
