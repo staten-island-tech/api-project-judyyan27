@@ -157,13 +157,6 @@ function show_gryffindor(hpData) {
   });
 }
 
-/* DOMSelectors.fall_w.addEventListener("click", function () {
-  DOMSelectors.container.innerHTML = "";
-  const fallWinter = flowers.filter((flower) =>
-    flower.typeof.includes("fall_winter")
-  );
-  createCards(fallWinter); */
-
 DOMSelectors.gryffindor.addEventListener("click", function () {
   DOMSelectors.container.innerHTML = ""; // Clear previous cards
   show_gryffindor(hpData); // Filter and display Gryffindor characters
