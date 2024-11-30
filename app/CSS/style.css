@@ -14,6 +14,14 @@
   color: rgb(61, 47, 34);
 }
 
+.color-blue {
+  color: rgb(30 64 175);
+}
+
+.color-magenta {
+  color: rgb(134 25 143);
+}
+
 .color-gold {
   color: rgb(195, 154, 28);
 }
@@ -79,19 +87,6 @@ h5 {
   filter: drop-shadow(0 0 2rem (113, 118, 121));
 }
 
-.card {
-  border-radius: 1.5rem;
-  border-width: 1rem;
-  width: 37rem;
-  height: 67rem;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 1.5rem groove;
-}
-
 .character-card {
   border-radius: 1.5rem;
   border-width: 1rem;
@@ -124,7 +119,7 @@ h5 {
   border-radius: 1.5rem;
   border-width: 1rem;
   width: 37rem;
-  height: 20rem;
+  height: 25rem;
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -151,12 +146,11 @@ button {
   margin: 0.3rem;
 }
 
-.card-title,
+.card-name,
 .card-desc,
 .card-price {
   font-size: 2rem;
   margin: 0.2rem;
-  color: rgb(139, 82, 44);
 }
 
 .container-box {

@@ -5,7 +5,7 @@ const DOMSelectors = {
   container: document.querySelector(`.container-box`),
   reset: document.querySelector(`#reset`),
 
-  griffindor: document.querySelector(`#griffindor`),
+  gryffindor: document.querySelector(`#griffindor`),
   slytherin: document.querySelector(`#slytherin`),
   hufflepuff: document.querySelector(`#hufflepuff`),
   ravenclaw: document.querySelector(`#ravenclaw`),
@@ -20,12 +20,12 @@ function createCards(hpData) {
   hpData.forEach((character) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="card character-card color-lightgrey ">
+      `<div class="character-card color-lightgrey ">
         <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
-        <h3 class="text-4xl card-title ">Name: ${character.fullName}</h3>
-        <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
-        <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
-        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
+        <h3 class="text-4xl card-name color-brown">Name: ${character.fullName}</h3>
+        <h3 class="card-price color-brown">Birthdate: ${character.birthdate}</h3>
+        <h3 class="card-desc color-brown">House: ${character.hogwartsHouse}</h3>
+        <h3 class="card-desc color-brown">Actor: ${character.interpretedBy}</h3>
       </div>`
     )
   );
@@ -65,12 +65,12 @@ function createBooks(hpData) {
   hpData.forEach((book) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="card book-card">
+      `<div class="book-card">
         <img class="object-scale-down" src="${book.cover}" alt="Image of ${book.originalTitle} Movie Poster">
-        <h2 class="card-title">${book.title}</h2>
-        <h3 class="card-price">Release Date: ${book.releaseDate}</h3>
-        <h4 class="card-desc">Description: ${book.description}</h4>
-        <h4 class="card-desc">Number of Pages: ${book.pages}</h4>
+        <h2 class="card-name color-blue">${book.title}</h2>
+        <h3 class="card-price color-blue">Release Date: ${book.releaseDate}</h3>
+        <h4 class="card-desc color-blue">Description: ${book.description}</h4>
+        <h4 class="card-desc color-blue">Number of Pages: ${book.pages}</h4>
       </div>`
     )
   );
@@ -107,8 +107,8 @@ function createSpells(hpData) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="card spell-card bg-rose-50 w-80 h-80">
-        <h2 class="card-title">Spell name: ${spell.spell}</h2>
-        <h3 class="card-description">Use: ${spell.use}</h3>`
+        <h2 class="card-description color-magenta">Spell name: ${spell.spell}</h2>
+        <h3 class="card-price color-magenta">Use: ${spell.use}</h3>`
     )
   );
 }
@@ -138,25 +138,33 @@ DOMSelectors.spells.addEventListener("click", function () {
   spellsData();
 });
 
-function show_griffindor(hpData) {
-  hpData.forEach((character) => {
-    // Ensure proper syntax for the arrow function
-    if (character.hogwartsHouse === "Griffindor") {
-      DOMSelectors.container.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card character-card w-56">
+function show_gryffindor(hpData) {
+  const gryffindor_characters = hpData.filter((hogwartsHouse) =>
+    hogwartsHouse.hogwartsHouse.includes("Gryffindor")
+  );
+
+  gryffindor_characters.forEach((character) => {
+    DOMSelectors.container.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card character-card w-56">
           <img class="object-scale-down" src="${character.cover}" alt="Image of ${character.originalTitle} Movie Poster">
-          <h2 class="card-title">${character.title}</h2>
+          <h2 class="card-name">${character.title}</h2>
           <h3 class="card-price">Release Date: ${character.releaseDate}</h3>
           <h4 class="card-desc">Description: ${character.description}</h4> 
           <h4 class="card-desc">Number of Pages: ${character.pages}</h4> 
         </div>`
-      );
-    }
+    );
   });
 }
 
-DOMSelectors.griffindor.addEventListener("click", function () {
+/* DOMSelectors.fall_w.addEventListener("click", function () {
+  DOMSelectors.container.innerHTML = "";
+  const fallWinter = flowers.filter((flower) =>
+    flower.typeof.includes("fall_winter")
+  );
+  createCards(fallWinter); */
+
+DOMSelectors.gryffindor.addEventListener("click", function () {
   DOMSelectors.container.innerHTML = ""; // Clear previous cards
-  show_griffindor(hpData); // Filter and display Gryffindor characters
+  show_gryffindor(hpData); // Filter and display Gryffindor characters
 });
