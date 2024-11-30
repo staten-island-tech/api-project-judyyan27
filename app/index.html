@@ -10,64 +10,59 @@
     />
     <title>Vite App</title>
   </head>
-  <body>
+  <body class="bg-colorlightgrey">
     <header>
-      <div class="header bg-slate-50">
-        <h1 class="title">Harry Potter Information!</h1>
+      <div class="header">
+        <h1 class="title color-gold">Harry Potter Information!</h1>
       </div>
     </header>
-    <body class="bg-slate-300">
-      <div class="selection bg-slate-200">
-        <button
-          class="btn bg-yellow-700 text-yellow-100 text-2xl w-fit"
-          id="characters"
-        >
-          Characters
-        </button>
-        <button class="btn bg-blue-700 text-blue-100 text-2xl w-fit" id="books">
-          Books
-        </button>
-        <button
-          class="btn bg-pink-700 text-pink-100 text-2xl w-fit"
-          id="spells"
-        >
-          Spells
-        </button>
-        <button
-          class="btn bg-orange-700 text-orange-100 text-2xl w-fit"
-          id="griffindor"
-        >
-          Griffindor Characters
-        </button>
-        <button
-          class="btn bg-green-700 text-green-100 text-2xl w-fit"
-          id="slytherin"
-        >
-          Slytherin Characters
-        </button>
-        <button
-          class="btn bg-yellow-700 text-yellow-100 text-2xl w-fit"
-          id="hufflepuff"
-        >
-          Hufflepuff Characters
-        </button>
-        <button
-          class="btn bg-indigo-700 text-indigo-100 text-2xl w-fit"
-          id="ravenclaw"
-        >
-          Ravenclaw Characters
-        </button>
-      </div>
-      <div class="container-box">
-        <!-- <div class="card">
+    <div class="selection">
+      <button
+        class="btn bg-yellow-700 text-yellow-100 text-2xl w-fit"
+        id="characters"
+      >
+        Characters
+      </button>
+      <button class="btn bg-blue-700 text-blue-100 text-2xl w-fit" id="books">
+        Books
+      </button>
+      <button class="btn bg-pink-700 text-pink-100 text-2xl w-fit" id="spells">
+        Spells
+      </button>
+      <button
+        class="btn bg-orange-700 text-orange-100 text-2xl w-fit"
+        id="griffindor"
+      >
+        Griffindor Characters
+      </button>
+      <button
+        class="btn bg-green-700 text-green-100 text-2xl w-fit"
+        id="slytherin"
+      >
+        Slytherin Characters
+      </button>
+      <button
+        class="btn bg-yellow-700 text-yellow-100 text-2xl w-fit"
+        id="hufflepuff"
+      >
+        Hufflepuff Characters
+      </button>
+      <button
+        class="btn bg-indigo-700 text-indigo-100 text-2xl w-fit"
+        id="ravenclaw"
+      >
+        Ravenclaw Characters
+      </button>
+    </div>
+    <div class="container-box">
+      <!-- <div class="card">
         <img class="card-img" src="${character.image}" />
         <h2 class="card-title">Name: ${character.fullName}</h2>
         <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
         <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
       </div> -->
-      </div>
-    </body>
+    </div>
     <script type="module" src="JS/main.js"></script>
   </body>
 </html>

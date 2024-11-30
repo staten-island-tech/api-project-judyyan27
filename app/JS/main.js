@@ -15,6 +15,22 @@ const DOMSelectors = {
   spells: document.querySelector(`#spells`),
 };
 
+function createCards(hpData) {
+  DOMSelectors.container.innerHTML = "";
+  hpData.forEach((character) =>
+    DOMSelectors.container.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card character-card color-lightgrey ">
+        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
+        <h3 class="text-4xl card-title ">Name: ${character.fullName}</h3>
+        <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
+        <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
+        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
+      </div>`
+    )
+  );
+}
+
 async function normalData() {
   // fetch returns a promise -- promises that someimte in the future it returns something
   try {
@@ -28,6 +44,7 @@ async function normalData() {
       const hpData = await response.json(); // json"ified" with data we can use
       console.log(hpData);
       createCards(hpData);
+      return hpData;
     }
   } catch (error) {
     console.log(error);
@@ -38,64 +55,22 @@ normalData();
 //hpData is the name for the jsonified data
 // Upon loading website, all cards show on screen
 
-async function griffindorData() {
-  // fetch returns a promise -- promises that someimte in the future it returns something
-  try {
-    let response = await fetch(
-      "https://potterapi-fedeperin.vercel.app/es/characters"
-    );
-    // guard clause
-    if (response.status != 200) {
-      throw new Error(response);
-    } else {
-      let griffindor = await response.json(); // json"ified" with data we can use
-      //if the character's house is griffindor-- save that info as another data
-      let gdata = griffindor.filter(
-        (house) => house.hogwartsHouse === "Griffindor"
-      );
-      createCards(gdata);
-    }
-  } catch (error) {
-    console.log(error);
-    console.log("sorry could not find that information");
-  }
-}
-
-DOMSelectors.griffindor.addEventListener("click", function () {
+DOMSelectors.characters.addEventListener("click", function () {
   DOMSelectors.container.innerHTML = "";
-  griffindorData();
+  normalData();
 });
-
-//standard function that creates cards for flowers on screen and can accept different arrays
-function createCards(hpData) {
-  DOMSelectors.container.innerHTML = "";
-  hpData.forEach((character) =>
-    DOMSelectors.container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card bg-neutral">
-        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
-        <h2 class="card-title bg-rgb(184, 134, 11)">Name: ${character.fullName}</h2>
-        <h3 class="card-price">Birthdate: ${character.birthdate}</h3>
-        <h3 class="card-desc">House: ${character.hogwartsHouse}</h3>
-        <h3 class="card-desc">Actor: ${character.interpretedBy}</h3>
-      </div>`
-    )
-  );
-}
-// gets data
-// shows the data (usually happens while getting data)
 
 function createBooks(hpData) {
   DOMSelectors.container.innerHTML = "";
   hpData.forEach((book) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="card bg-rose-50 w-80 h-80">
-        <img class="card-img" src="${book.cover}" alt="Image of ${book.originalTitle} Movie Poster" />
-        <h2 class="card-title bg-rgb(184, 134, 11)">${book.title}</h2>
+      `<div class="card book-card">
+        <img class="object-scale-down" src="${book.cover}" alt="Image of ${book.originalTitle} Movie Poster">
+        <h2 class="card-title">${book.title}</h2>
         <h3 class="card-price">Release Date: ${book.releaseDate}</h3>
-        <h3 class="card-desc">Description: ${book.description}</h3>
-        <h3 class="card-desc">Number of Pages: ${book.pages}</h3>
+        <h4 class="card-desc">Description: ${book.description}</h4>
+        <h4 class="card-desc">Number of Pages: ${book.pages}</h4>
       </div>`
     )
   );
@@ -131,9 +106,9 @@ function createSpells(hpData) {
   hpData.forEach((spell) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="card bg-rose-50 w-80 h-80">
-        <h2 class="card-title bg-rgb(184, 134, 11)">Spell ame: ${spell.spell}</h2>
-        <h3 class="card-price">Use: ${spell.use}</h3>`
+      `<div class="card spell-card bg-rose-50 w-80 h-80">
+        <h2 class="card-title">Spell name: ${spell.spell}</h2>
+        <h3 class="card-description">Use: ${spell.use}</h3>`
     )
   );
 }
@@ -161,4 +136,27 @@ async function spellsData() {
 DOMSelectors.spells.addEventListener("click", function () {
   DOMSelectors.container.innerHTML = "";
   spellsData();
+});
+
+function show_griffindor(hpData) {
+  hpData.forEach((character) => {
+    // Ensure proper syntax for the arrow function
+    if (character.hogwartsHouse === "Griffindor") {
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card character-card w-56">
+          <img class="object-scale-down" src="${character.cover}" alt="Image of ${character.originalTitle} Movie Poster">
+          <h2 class="card-title">${character.title}</h2>
+          <h3 class="card-price">Release Date: ${character.releaseDate}</h3>
+          <h4 class="card-desc">Description: ${character.description}</h4> 
+          <h4 class="card-desc">Number of Pages: ${character.pages}</h4> 
+        </div>`
+      );
+    }
+  });
+}
+
+DOMSelectors.griffindor.addEventListener("click", function () {
+  DOMSelectors.container.innerHTML = ""; // Clear previous cards
+  show_griffindor(hpData); // Filter and display Gryffindor characters
 });
