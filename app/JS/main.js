@@ -21,7 +21,7 @@ function createCards(hpData) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="character-card color-lightgrey ">
-        <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
+        <img class="card-img" src="${character.image}" alt="Portrait of ${character.fullName}" />
         <h2 class="text-4xl card-name color-brown">Name: ${character.fullName}</h2>
         <h3 class="card-price color-brown">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc color-brown">House: ${character.hogwartsHouse}</h3>
@@ -66,7 +66,7 @@ function createBooks(hpData) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="book-card">
-        <img class="object-scale-down" src="${book.cover}" alt="Image of ${book.originalTitle} Movie Poster">
+        <img class="object-scale-down" src="${book.cover}" alt="Book cover illustration of ${book.originalTitle}">
         <h2 class="card-name color-blue">${book.title}</h2>
         <h3 class="card-price color-blue">Release Date: ${book.releaseDate}</h3>
         <h4 class="card-desc color-blue">Description: ${book.description}</h4>
@@ -146,12 +146,12 @@ function show_gryffindor(hpData) {
     if (hpData[i].hogwartsHouse === "Gryffindor") {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
-        `<div class="card character-card w-56">
-          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
-          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
-          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
-          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        `<div class="card gryffindor character-card w-56">
+          <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name text-orange">Name: ${hpData[i].fullName}</h2>
+          <h3 class="card-price text-orange">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc text-orange">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc text-orange">Actor: ${hpData[i].interpretedBy}</h3>
         </div>`
       );
     }
@@ -171,12 +171,12 @@ function show_slytherin(hpData) {
     if (hpData[i].hogwartsHouse === "Slytherin") {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
-        `<div class="card character-card w-56">
-          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
-          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
-          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
-          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        `<div class="card slytherin character-card w-56">
+          <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name text-green">Name: ${hpData[i].fullName}</h2>
+          <h3 class="card-price text-green">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc text-green">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc text-green">Actor: ${hpData[i].interpretedBy}</h3>
         </div>`
       );
     }
@@ -197,12 +197,12 @@ function show_hufflepuff(hpData) {
     if (hpData[i].hogwartsHouse === "Hufflepuff") {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
-        `<div class="card character-card w-56">
-          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
-          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
-          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
-          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        `<div class="card hufflepuff character-card w-56">
+          <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name text-yellow">Name: ${hpData[i].fullName}</h2>
+          <h3 class="card-price text-yellow">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc text-yellow">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc text-yellow">Actor: ${hpData[i].interpretedBy}</h3>
         </div>`
       );
     }
@@ -224,12 +224,12 @@ function show_ravenclaw(hpData) {
     if (hpData[i].hogwartsHouse === "Ravenclaw") {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
-        `<div class="card character-card w-56">
-          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
-          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
-          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
-          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        `<div class="card ravenclaw character-card w-56">
+          <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name text-indigo">Name: ${hpData[i].fullName}</h2>
+          <h3 class="card-price text-indigo">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc text-indigo">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc text-indigo">Actor: ${hpData[i].interpretedBy}</h3>
         </div>`
       );
     }

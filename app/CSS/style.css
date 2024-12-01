@@ -22,12 +22,25 @@
   color: rgb(134 25 143);
 }
 
-.color-gold {
-  color: rgb(195, 154, 28);
-}
-
 .color-maroon {
   color: rgb(100, 30, 30);
+}
+
+.text-orange {
+  color: rgb(154 52 18);
+}
+
+.text-yellow {
+  color: rgb(113 63 18);
+}
+
+.text-green {
+  color: rgb(5 46 22);
+  /* color: rgb(21 128 61); */
+}
+
+.text-indigo {
+  color: rgb(30 58 138);
 }
 
 html,
@@ -138,6 +151,42 @@ h5 {
   border-color: rgb(139, 44, 118);
 }
 
+.gryffindor {
+  border-color: rgb(122, 66, 34);
+}
+
+.gryffindor:hover {
+  scale: 105%;
+  filter: drop-shadow(0 0 2rem rgb(112, 66, 35));
+}
+
+.slytherin {
+  border-color: rgb(37, 122, 34);
+}
+
+.slytherin:hover {
+  scale: 105%;
+  filter: drop-shadow(0 0 2rem rgb(37, 112, 35));
+}
+
+.hufflepuff {
+  border-color: rgb(122, 116, 34);
+}
+
+.hufflepuff:hover {
+  scale: 105%;
+  filter: drop-shadow(0 0 2rem rgb(112, 107, 35));
+}
+
+.ravenclaw {
+  border-color: rgb(47, 34, 122);
+}
+
+.ravenclaw:hover {
+  scale: 105%;
+  filter: drop-shadow(0 0 2rem rgb(40, 35, 112));
+}
+
 button:hover {
   scale: 90%;
   filter: drop-shadow(0 0 0.75rem rgb(211, 211, 211));
@@ -145,6 +194,7 @@ button:hover {
 
 button {
   padding: 0.3rem;
+  margin: 0.2rem;
   border-radius: 1.5rem;
 }
 
