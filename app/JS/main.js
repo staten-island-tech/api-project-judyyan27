@@ -35,7 +35,7 @@ async function normalData() {
   // fetch returns a promise -- promises that someimte in the future it returns something
   try {
     let response = await fetch(
-      "https://potterapi-fedeperin.vercel.app/es/characters"
+      "https://potterapi-fedeperin.vercel.app/en/characters"
     );
     // guard clause
     if (response.status != 200) {
@@ -139,25 +139,105 @@ DOMSelectors.spells.addEventListener("click", function () {
 });
 
 function show_gryffindor(hpData) {
-  const gryffindor_characters = hpData.filter((hogwartsHouse) =>
-    hogwartsHouse.hogwartsHouse.includes("Gryffindor")
-  );
+  DOMSelectors.container.innerHTML = ""; //clear previous cards
 
-  gryffindor_characters.forEach((character) => {
-    DOMSelectors.container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card character-card w-56">
-          <img class="object-scale-down" src="${character.cover}" alt="Image of ${character.originalTitle} Movie Poster">
-          <h2 class="card-name">${character.title}</h2>
-          <h3 class="card-price">Release Date: ${character.releaseDate}</h3>
-          <h4 class="card-desc">Description: ${character.description}</h4> 
-          <h4 class="card-desc">Number of Pages: ${character.pages}</h4> 
+  for (let i = 0; i < hpData.length; i++) {
+    // Check if the current character's house is Gryffindor
+    if (hpData[i].hogwartsHouse === "Gryffindor") {
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card character-card w-56">
+          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
         </div>`
-    );
-  });
+      );
+    }
+  }
 }
 
-DOMSelectors.gryffindor.addEventListener("click", function () {
-  DOMSelectors.container.innerHTML = ""; // Clear previous cards
+DOMSelectors.gryffindor.addEventListener("click", async function () {
+  const hpData = await normalData(); // Fetches the data
   show_gryffindor(hpData); // Filter and display Gryffindor characters
+});
+
+function show_slytherin(hpData) {
+  DOMSelectors.container.innerHTML = ""; //clear previous cards
+
+  for (let i = 0; i < hpData.length; i++) {
+    // Check if character house is Slytherin
+    if (hpData[i].hogwartsHouse === "Slytherin") {
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card character-card w-56">
+          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        </div>`
+      );
+    }
+  }
+}
+
+DOMSelectors.slytherin.addEventListener("click", async function () {
+  const hpData = await normalData(); // Fetches the data
+  show_slytherin(hpData); // Filter and display slytherin characters
+});
+
+function show_hufflepuff(hpData) {
+  DOMSelectors.container.innerHTML = "";
+  //clear previous cards
+
+  for (let i = 0; i < hpData.length; i++) {
+    // Check if current character house is hufflepuff
+    if (hpData[i].hogwartsHouse === "Hufflepuff") {
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card character-card w-56">
+          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        </div>`
+      );
+    }
+  }
+}
+
+DOMSelectors.hufflepuff.addEventListener("click", async function () {
+  const hpData = await normalData();
+  // Fetches the data
+  show_hufflepuff(hpData);
+});
+
+function show_ravenclaw(hpData) {
+  DOMSelectors.container.innerHTML = "";
+  //clear previous cards
+
+  for (let i = 0; i < hpData.length; i++) {
+    // Check if current character house is ravenclaw
+    if (hpData[i].hogwartsHouse === "Ravenclaw") {
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card character-card w-56">
+          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
+          <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
+          <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
+        </div>`
+      );
+    }
+  }
+}
+
+DOMSelectors.ravenclaw.addEventListener("click", async function () {
+  const hpData = await normalData();
+  // Fetches the data
+  show_ravenclaw(hpData);
 });
