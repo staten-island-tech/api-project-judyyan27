@@ -22,7 +22,7 @@ function createCards(hpData) {
       "beforeend",
       `<div class="character-card color-lightgrey ">
         <img class="card-img" src="${character.image}" alt="Image of ${character.fullName}" />
-        <h3 class="text-4xl card-name color-brown">Name: ${character.fullName}</h3>
+        <h2 class="text-4xl card-name color-brown">Name: ${character.fullName}</h2>
         <h3 class="card-price color-brown">Birthdate: ${character.birthdate}</h3>
         <h3 class="card-desc color-brown">House: ${character.hogwartsHouse}</h3>
         <h3 class="card-desc color-brown">Actor: ${character.interpretedBy}</h3>
@@ -107,7 +107,7 @@ function createSpells(hpData) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="card spell-card bg-rose-50 w-80 h-80">
-        <h2 class="card-description color-magenta">Spell name: ${spell.spell}</h2>
+        <h2 class="card-description color-magenta">${spell.spell}</h2>
         <h3 class="card-price color-magenta">Use: ${spell.use}</h3>`
     )
   );
@@ -147,8 +147,8 @@ function show_gryffindor(hpData) {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
         `<div class="card character-card w-56">
-          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
           <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
           <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
           <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
@@ -172,8 +172,8 @@ function show_slytherin(hpData) {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
         `<div class="card character-card w-56">
-          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
           <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
           <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
           <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
@@ -198,8 +198,8 @@ function show_hufflepuff(hpData) {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
         `<div class="card character-card w-56">
-          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
           <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
           <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
           <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
@@ -225,8 +225,8 @@ function show_ravenclaw(hpData) {
       DOMSelectors.container.insertAdjacentHTML(
         "beforeend",
         `<div class="card character-card w-56">
-          <img class="object-scale-down" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
-          <h3 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h3>
+          <img class="card-img" src="${hpData[i].image}" alt="Image of ${hpData[i].fullName}" />
+          <h2 class="text-4xl card-name color-brown">Name: ${hpData[i].fullName}</h2>
           <h3 class="card-price color-brown">Birthdate: ${hpData[i].birthdate}</h3>
           <h3 class="card-desc color-brown">House: ${hpData[i].hogwartsHouse}</h3>
           <h3 class="card-desc color-brown">Actor: ${hpData[i].interpretedBy}</h3>
