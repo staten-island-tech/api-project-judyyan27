@@ -13,7 +13,47 @@ const DOMSelectors = {
   characters: document.querySelector(`#characters`),
   books: document.querySelector(`#books`),
   spells: document.querySelector(`#spells`),
+
+  form: document.querySelector(`form`),
+  button: document.querySelector(`#findhp`),
+  hpName: document.querySelector(`#name`),
 };
+
+DOMSelectors.button.addEventListener("click", function (event) {
+  event.preventDefault();
+  let name = DOMSelectors.name.value;
+  // find out a way to cross reference search to name
+  for (let i = 0; i < hpData.length; i++) {
+    if (hpData[i].nickname === name) {
+      DOMSelectors.container.innerHTML = "";
+      DOMSelectors.container.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card gryffindor character-card w-56">
+            <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
+            <h2 class="text-4xl card-name text-orange">Name: ${hpData[i].fullName}</h2>
+            <h3 class="card-price text-orange">Birthdate: ${hpData[i].birthdate}</h3>
+            <h3 class="card-desc text-orange">House: ${hpData[i].hogwartsHouse}</h3>
+            <h3 class="card-desc text-orange">Actor: ${hpData[i].interpretedBy}</h3>
+          </div>`
+      );
+    }
+  }
+
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+          <h1 class="card-title">${name}</h1>
+          <p class="card-desc">${flavor}</p>
+          <img class="card-img" src="https://img.freepik.com/premium-photo/sweetheart-delights-valentines-day-cute-dessert-clipart_1077802-71338.jpg"
+            alt="image of a dessert"
+          />
+          <button type="remove" class= "remove">Remove</button>
+        </div>`
+  );
+
+  const newcard = DOMSelectors.container.lastElementChild;
+  const removeButton = newcard.querySelector(".remove");
+});
 
 function createCards(hpData) {
   DOMSelectors.container.innerHTML = "";
