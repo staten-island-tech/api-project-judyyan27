@@ -22,3 +22,16 @@ async function getData() {
   }
 }
 getData();
+
+
+
+
+
+function Algorithm(list) {
+  let validity = True;
+  list.forEach((item) => if(checkValidity(item) === false) {
+    valifity = false
+    break
+  }
+);
+}
