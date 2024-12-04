@@ -15,35 +15,42 @@ const DOMSelectors = {
   spells: document.querySelector(`#spells`),
 
   form: document.querySelector(`form`),
-  button: document.querySelector(`#findhp`),
+  hpButton: document.querySelector(`#findhp`),
   hpName: document.querySelector(`#name`),
 };
 
-DOMSelectors.button.addEventListener("click", function (event) {
+DOMSelectors.hpButton.addEventListener("click", async function (event) {
   event.preventDefault();
   DOMSelectors.container.innerHTML = "";
   let name = DOMSelectors.hpName.value;
-  search(hpData, name);
-  // find out a way to cross reference search to name
+  search(name);
 });
 
-function search(hpData, name) {
-  for (let i = 0; i < hpData.length; i++) {
-    if (hpData[i].nickname == name) {
-      DOMSelectors.container.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card gryffindor character-card w-56">
-          <img class="card-img" src="${hpData[i].image}" alt="Portrait of ${hpData[i].fullName}" />
-          <h2 class="text-4xl card-name text-orange">Name: ${hpData[i].fullName}</h2>
-          <h3 class="card-price text-orange">Birthdate: ${hpData[i].birthdate}</h3>
-          <h3 class="card-desc text-orange">House: ${hpData[i].hogwartsHouse}</h3>
-          <h3 class="card-desc text-orange">Actor: ${hpData[i].interpretedBy}</h3>
-        </div>`
-      );
-      break;
+async function search(name) {
+  try {
+    let response = await fetch(
+      `https://potterapi-fedeperin.vercel.app/es/characters?search=${name}`
+    );
+    // guard clause
+    if (response.status != 200) {
+      throw new Error(response);
+    } 
+      const search = await response.json(); // json"ified" with data we can use
+      console.log(search);
+
+      if (results.length === 0) {
+        DOMSelectors.container.innerHTML = `<h2>No characters found for "${name}".</h2>`;
+      } else {
+        console.log(response);
+        createCards(search);
+      }
     }
+   catch (error) {
+    console.log(error);
+    console.log("sorry could not find that information");
+    DOMSelectors.container.innerHTML = `<h2>Something went wrong. Check your spelling.</h2>`;
   }
-}
+
 
 function createCards(hpData) {
   DOMSelectors.container.innerHTML = "";
