@@ -27,6 +27,7 @@ DOMSelectors.hpButton.addEventListener("click", async function (event) {
 });
 
 async function search(name) {
+  console.log(name);
   try {
     let response = await fetch(
       `https://potterapi-fedeperin.vercel.app/es/characters?search=${name}`
@@ -34,23 +35,22 @@ async function search(name) {
     // guard clause
     if (response.status != 200) {
       throw new Error(response);
-    } 
-      const search = await response.json(); // json"ified" with data we can use
-      console.log(search);
-
-      if (results.length === 0) {
-        DOMSelectors.container.innerHTML = `<h2>No characters found for "${name}".</h2>`;
-      } else {
-        console.log(response);
-        createCards(search);
-      }
     }
-   catch (error) {
+    const search = await response.json(); // json"ified" with data we can use
+    console.log(search);
+
+    if (search.length === 0) {
+      DOMSelectors.container.innerHTML = `<h2>No characters found for "${name}".</h2>`;
+    } else if (search.length > 0) {
+      console.log(response);
+      createCards(search);
+    }
+  } catch (error) {
     console.log(error);
     console.log("sorry could not find that information");
     DOMSelectors.container.innerHTML = `<h2>Something went wrong. Check your spelling.</h2>`;
   }
-
+}
 
 function createCards(hpData) {
   DOMSelectors.container.innerHTML = "";
