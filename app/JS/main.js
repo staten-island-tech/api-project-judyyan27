@@ -40,7 +40,7 @@ async function search(name) {
     console.log(search);
 
     if (search.length === 0) {
-      DOMSelectors.container.innerHTML = `<h2>No characters found for "${name}".</h2>`;
+      DOMSelectors.container.innerHTML = `<h2 class=text-black">No characters found for "${name}" Check your spelling or search a different name.</h2>`;
     } else if (search.length > 0) {
       console.log(response);
       createCards(search);
@@ -48,7 +48,7 @@ async function search(name) {
   } catch (error) {
     console.log(error);
     console.log("sorry could not find that information");
-    DOMSelectors.container.innerHTML = `<h2>Something went wrong. Check your spelling.</h2>`;
+    DOMSelectors.container.innerHTML = `<h2 class=text-black>Something went wrong. Check your spelling.</h2>`;
   }
 }
 
